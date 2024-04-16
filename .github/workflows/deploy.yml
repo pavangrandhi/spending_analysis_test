@@ -44,7 +44,11 @@ jobs:
       run: |
           pip3 install --user awsebcli
           echo "${HOME}/.local/bin" >> $GITHUB_PATH
-        
+    
+    - name: Initialize Elastic Beanstalk CLI
+      run: |
+        eb init --platform docker ${{ env.EB_APPLICATION_NAME }} --region ${{ env.AWS_REGION }}
+
     - name: Deploy to Elastic Beanstalk
       run: |
         eb use ${{ env.EB_ENVIRONMENT_NAME }} --region ${{ env.AWS_REGION }}
