@@ -47,7 +47,7 @@ jobs:
     
     - name: Initialize Elastic Beanstalk CLI
       run: |
-        eb init --platform docker ${{ env.EB_APPLICATION_NAME }} --region ${{ env.AWS_REGION }}
+        eb init ${{ env.EB_APPLICATION_NAME }} --platform docker --region ${{ env.AWS_REGION }}
 
     - name: Deploy to Elastic Beanstalk
       run: |
