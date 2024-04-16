@@ -40,6 +40,11 @@ jobs:
         LATEST_TAG=$(curl -s "https://hub.docker.com/v2/repositories/pavangrandhi25/spending_analysis_test/tags/?page_size=1" | jq -r '.results[0].name // empty')
         echo "latest_tag=${LATEST_TAG}" >> $GITHUB_ENV
 
+    - name: Install Elastic Beanstalk CLI
+      run: |
+          pip3 install --user awsebcli
+          echo "${HOME}/.local/bin" >> $GITHUB_PATH
+        
     - name: Deploy to Elastic Beanstalk
       run: |
         eb use ${{ env.EB_ENVIRONMENT_NAME }} --region ${{ env.AWS_REGION }}
