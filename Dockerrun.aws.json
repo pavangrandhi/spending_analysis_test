@@ -4,7 +4,7 @@
     {
       "name": "my-container",
       "image": "pavangrandhi25/spending_analysis_test:v2",
-      "portMappings": [
+      "Ports": [
         {
           "hostPort": 443,
           "containerPort": 5000
