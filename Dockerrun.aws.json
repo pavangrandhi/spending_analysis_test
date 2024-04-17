@@ -1,0 +1,15 @@
+{
+  "AWSEBDockerrunVersion": "1",
+  "containerDefinitions": [
+    {
+      "name": "my-container",
+      "image": "pavangrandhi25/spending_analysis_test:v2",
+      "portMappings": [
+        {
+          "hostPort": 443,
+          "containerPort": 5000
+        }
+      ]
+    }
+  ]
+}
